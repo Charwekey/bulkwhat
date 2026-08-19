@@ -29,4 +29,20 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Get the imports for the user.
+     */
+    public function imports(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Import::class);
+    }
+
+    /**
+     * Get the campaigns for the user.
+     */
+    public function campaigns(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Campaign::class);
+    }
 }
